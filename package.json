@@ -1,0 +1,28 @@
+{
+  "name": "reliance-motor-claims-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React 18 enterprise demo for Reliance General Insurance motor claims lifecycle, portals, settlement workflows, and analytics.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "echo \"No lint configured for this portfolio demo\""
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.0",
+    "@mui/material": "^5.14.0",
+    "@mui/x-date-pickers": "^6.0.0",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "recharts": "^2.8.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0"
+  }
+}
