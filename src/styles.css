@@ -17,6 +17,31 @@ a {
   text-decoration: none;
 }
 
+.MuiTableCell-root {
+  padding: 14px 18px;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.MuiTableRow-root:nth-of-type(odd) {
+  background-color: rgba(15, 23, 42, 0.03);
+}
+
+.MuiTableRow-root:hover {
+  background-color: rgba(37, 99, 235, 0.06);
+}
+
+.MuiPaper-root {
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.MuiButton-root {
+  text-transform: none;
+}
+
 .pulse-dot {
   animation: pulse 1.5s infinite;
 }

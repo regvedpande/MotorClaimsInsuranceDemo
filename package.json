@@ -2,7 +2,7 @@
   "name": "reliance-motor-claims-platform",
   "version": "1.0.0",
   "private": true,
-  "description": "React 18 enterprise demo for Reliance General Insurance motor claims lifecycle, portals, settlement workflows, and analytics.",
+  "description": "React 18 enterprise demo for motor claims lifecycle, portals, settlement workflows, and analytics.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
