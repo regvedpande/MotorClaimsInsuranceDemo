@@ -22,7 +22,7 @@ export default function Landing() {
         <Container maxWidth="lg">
           <Typography variant="overline" sx={{ color: '#99f6e4', fontWeight: 800 }}>Portfolio demo</Typography>
           <Typography variant="h2" sx={{ maxWidth: 860, fontWeight: 800 }}>Motor Claims Command Center</Typography>
-          <Typography variant="h6" sx={{ mt: 1, opacity: 0.92, maxWidth: 760 }}>Explore FNOL, assessment, survey, garage authorisation, settlement and analytics workflows from one recruiter-friendly demo.</Typography>
+          <Typography variant="h6" sx={{ mt: 1, opacity: 0.92, maxWidth: 760 }}>Explore FNOL, assessment, survey, garage authorisation, settlement and analytics workflows from one polished portfolio demo.</Typography>
           <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 3 }}>
             {['React 18', 'Material UI', 'Role-based portals', 'Settlement logic', 'Mock insurance data', 'Vercel ready'].map((item) => <Chip key={item} label={item} sx={{ bgcolor: '#ffffff18', color: '#ffffff' }} />)}
           </Stack>

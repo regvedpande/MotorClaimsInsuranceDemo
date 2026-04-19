@@ -11,7 +11,7 @@ Enterprise-style React 18 portfolio demo for a complete motor insurance claims e
 5. Use **Garage Portal** to submit estimates, view cashless authorisations, and inspect payment status.
 6. Use **Analytics Dashboard** to review KPIs, regional performance, ageing, and settlement charts.
 
-## Recruiter Demo Guide
+## Demo Guide
 
 - Start with **Claims Desk** to show the full operational workflow and drill into claim details.
 - Open **Settlement Calculator** to explain depreciation, inadmissibles, excess, and net payable.
@@ -33,7 +33,7 @@ Enterprise-style React 18 portfolio demo for a complete motor insurance claims e
 
 ```mermaid
 flowchart LR
-  User[Recruiter or user] --> Landing[Portal selector]
+  User[Demo user] --> Landing[Portal selector]
   Landing --> Desk[Claims Desk]
   Landing --> Claimant[Claimant Portal]
   Landing --> Surveyor[Surveyor Portal]
@@ -104,4 +104,4 @@ Cashless claims pay the garage after depreciation and collect excess plus inadmi
 
 ## Portfolio Notes
 
-This demo is intentionally frontend-only, but it mirrors enterprise claims concepts recruiters can discuss in interviews: FNOL, eligibility, surveyor assignment, document review, estimate approvals, cashless authorisation, NEFT settlement, ageing reports, and executive analytics.
+This demo is intentionally frontend-only, but it mirrors enterprise claims concepts for interview discussions: FNOL, eligibility, surveyor assignment, document review, estimate approvals, cashless authorisation, NEFT settlement, ageing reports, and executive analytics.
