@@ -16,6 +16,14 @@ export const CLAIM_STATUSES = [
 export const CLAIM_TYPES = ['OwnDamage', 'Theft', 'PersonalAccident'];
 export const REGIONS = ['Mumbai', 'Pune', 'Delhi', 'Bangalore'];
 
+export const CLAIM_TYPE_LABELS = {
+  OwnDamage: 'Own Damage',
+  Theft: 'Theft',
+  PersonalAccident: 'Personal Accident'
+};
+
+export const formatClaimType = (type) => CLAIM_TYPE_LABELS[type] || type;
+
 export const STATUS_LABELS = {
   Registered: 'Registered',
   EligibilityPassed: 'Eligibility Passed',

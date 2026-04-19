@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import PageHeader from '../../components/PageHeader.jsx';
 import StatusChip from '../../components/StatusChip.jsx';
 import { useApp } from '../../context/AppContext.jsx';
-import { CLAIM_STATUSES, REGIONS } from '../../data/constants.js';
+import { CLAIM_STATUSES, REGIONS, formatClaimType } from '../../data/constants.js';
 
 export default function AllClaims() {
   const { claims, setSelectedClaimNumber } = useApp();
@@ -29,7 +29,7 @@ export default function AllClaims() {
       <Paper sx={{ overflowX: 'auto' }}>
         <Table>
           <TableHead><TableRow><TableCell>Claim No</TableCell><TableCell>Customer</TableCell><TableCell>Vehicle</TableCell><TableCell>Type</TableCell><TableCell>Status</TableCell><TableCell>Ageing</TableCell><TableCell>Region</TableCell><TableCell>Surveyor</TableCell><TableCell>Action</TableCell></TableRow></TableHead>
-          <TableBody>{filtered.map((claim) => <TableRow key={claim.claimNumber}><TableCell>{claim.claimNumber}</TableCell><TableCell>{claim.customerName}</TableCell><TableCell>{claim.vehicleReg}<br />{claim.vehicleMake} {claim.vehicleModel}</TableCell><TableCell>{claim.claimType}</TableCell><TableCell><StatusChip status={claim.status} /></TableCell><TableCell>{claim.ageingDays} days</TableCell><TableCell>{claim.region}</TableCell><TableCell>{claim.assignedSurveyor}</TableCell><TableCell><Stack direction="row"><Button variant="contained" size="small" onClick={() => { setSelectedClaimNumber(claim.claimNumber); navigate(`/claims-desk/claims/${claim.claimNumber}`); }}>View Details</Button></Stack></TableCell></TableRow>)}</TableBody>
+          <TableBody>{filtered.map((claim) => <TableRow key={claim.claimNumber}><TableCell>{claim.claimNumber}</TableCell><TableCell>{claim.customerName}</TableCell><TableCell>{claim.vehicleReg}<br />{claim.vehicleMake} {claim.vehicleModel}</TableCell><TableCell>{formatClaimType(claim.claimType)}</TableCell><TableCell><StatusChip status={claim.status} /></TableCell><TableCell>{claim.ageingDays} days</TableCell><TableCell>{claim.region}</TableCell><TableCell>{claim.assignedSurveyor}</TableCell><TableCell><Stack direction="row"><Button variant="contained" size="small" onClick={() => { setSelectedClaimNumber(claim.claimNumber); navigate(`/claims-desk/claims/${claim.claimNumber}`); }}>View Details</Button></Stack></TableCell></TableRow>)}</TableBody>
         </Table>
       </Paper>
     </>

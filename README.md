@@ -1,20 +1,28 @@
-# Reliance General Insurance - Motor Claims Platform
+# Motor Claims Command Center
 
 Enterprise-style React 18 portfolio demo for a complete motor insurance claims ecosystem. The application is deployable on Vercel and uses hardcoded Indian insurance mock data, role-based portals, settlement calculations, workflow state changes, and management analytics.
 
 ## Live Demo Flow
 
-1. Open the landing page and choose a portal.
+1. Open the landing page and choose a portal from the role cards.
 2. Use **Claims Desk** to inspect claims, approve assessments, review documents, and run settlement calculations.
 3. Use **Claimant Portal** to file a new FNOL claim and track its status.
 4. Use **Surveyor Portal** to simulate field photo uploads, line-item decisions, and report submission.
 5. Use **Garage Portal** to submit estimates, view cashless authorisations, and inspect payment status.
 6. Use **Analytics Dashboard** to review KPIs, regional performance, ageing, and settlement charts.
 
+## Recruiter Demo Guide
+
+- Start with **Claims Desk** to show the full operational workflow and drill into claim details.
+- Open **Settlement Calculator** to explain depreciation, inadmissibles, excess, and net payable.
+- Use **Claimant Portal** to demonstrate a customer-facing FNOL journey.
+- Use **Surveyor Portal** and **Garage Portal** to show partner workflows.
+- Finish with **Analytics Dashboard** to highlight portfolio KPIs, charts, tables, and ageing risk.
+
 ## Tech Stack
 
 - React 18 with Vite
-- Material UI v5 and custom Reliance-themed palette
+- Material UI v5 and a custom insurance dashboard theme
 - React Router v6
 - Recharts
 - date-fns
@@ -24,15 +32,21 @@ Enterprise-style React 18 portfolio demo for a complete motor insurance claims e
 ## Architecture
 
 ```mermaid
-flowchart TD
-  A["Presentation Layer<br/>React role portals"] --> B["Business Logic Layer<br/>CQRS, MediatR, Eligibility, Settlement"]
-  B --> C["Integration Layer<br/>BizTalk, WCF/SOAP, XSLT Maps"]
-  C --> D["Data Layer<br/>SQL Server, EF Core, Dapper, Azure Blob, Redis"]
-  A --> E["Claimant Portal"]
-  A --> F["Surveyor Portal"]
-  A --> G["Garage Portal"]
-  A --> H["Claims Desk"]
-  A --> I["Analytics Dashboard"]
+flowchart LR
+  User[Recruiter or user] --> Landing[Portal selector]
+  Landing --> Desk[Claims Desk]
+  Landing --> Claimant[Claimant Portal]
+  Landing --> Surveyor[Surveyor Portal]
+  Landing --> Garage[Garage Portal]
+  Landing --> Analytics[Analytics Dashboard]
+  Desk --> State[React Context claim state]
+  Claimant --> State
+  Surveyor --> State
+  Garage --> State
+  State --> Data[Static mock insurance data]
+  State --> Settlement[Settlement calculator]
+  State --> Charts[Recharts analytics]
+  Analytics --> Charts
 ```
 
 ## Local Setup
@@ -90,4 +104,4 @@ Cashless claims pay the garage after depreciation and collect excess plus inadmi
 
 ## Portfolio Notes
 
-This demo is intentionally frontend-only, but it mirrors enterprise claims concepts recruiters can discuss in interviews: FNOL, eligibility, surveyor assignment, BizTalk-style orchestration, document review, estimate approvals, cashless authorisation, NEFT settlement, ageing reports, and executive analytics.
+This demo is intentionally frontend-only, but it mirrors enterprise claims concepts recruiters can discuss in interviews: FNOL, eligibility, surveyor assignment, document review, estimate approvals, cashless authorisation, NEFT settlement, ageing reports, and executive analytics.

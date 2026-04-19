@@ -6,11 +6,12 @@ import { useApp } from '../../context/AppContext.jsx';
 import { garages } from '../../data/mockData.js';
 import { formatCurrency } from '../../utils/formatCurrency.js';
 import { groupBy } from './analyticsUtils.js';
+import { formatClaimType } from '../../data/constants.js';
 
 export default function ClaimsAnalysis() {
   const { claims } = useApp();
   const split = groupBy(claims, 'settlementMode').filter((x) => x.name !== 'null');
-  const byType = groupBy(claims, 'claimType').map((row) => ({ ...row, avg: Math.round(claims.filter((c) => c.claimType === row.name).reduce((s, c) => s + c.netPayable, 0) / row.value) }));
+  const byType = groupBy(claims, 'claimType').map((row) => ({ ...row, name: formatClaimType(row.name), avg: Math.round(claims.filter((c) => formatClaimType(c.claimType) === formatClaimType(row.name)).reduce((s, c) => s + c.netPayable, 0) / row.value) }));
   return (
     <>
       <PageHeader title="Claims Analysis" subtitle="Status, garage, and claim-type mix" />

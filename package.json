@@ -1,5 +1,5 @@
 {
-  "name": "reliance-motor-claims-platform",
+  "name": "motor-claims-command-center",
   "version": "1.0.0",
   "private": true,
   "description": "React 18 enterprise demo for motor claims lifecycle, portals, settlement workflows, and analytics.",

@@ -12,8 +12,9 @@ import LoadingState from '../../components/LoadingState.jsx';
 import { useApp } from '../../context/AppContext.jsx';
 import { formatCurrency } from '../../utils/formatCurrency.js';
 import useBriefLoading from '../../hooks/useBriefLoading.js';
+import { formatClaimType } from '../../data/constants.js';
 
-const group = (items, key) => Object.entries(items.reduce((acc, item) => ({ ...acc, [item[key]]: (acc[item[key]] || 0) + 1 }), {})).map(([name, value]) => ({ name, value }));
+const group = (items, key) => Object.entries(items.reduce((acc, item) => ({ ...acc, [item[key]]: (acc[item[key]] || 0) + 1 }), {})).map(([name, value]) => ({ name: key === 'claimType' ? formatClaimType(name) : name, value }));
 const colors = ['#0d1f35', '#2563eb', '#0d9488', '#d97706', '#7c3aed', '#dc2626'];
 
 export default function Dashboard() {
@@ -38,7 +39,7 @@ export default function Dashboard() {
           <Paper sx={{ overflow: 'hidden' }}>
             <Table>
               <TableHead><TableRow><TableCell>Claim No</TableCell><TableCell>Customer</TableCell><TableCell>Type</TableCell><TableCell>Status</TableCell><TableCell>Ageing Days</TableCell><TableCell>Region</TableCell></TableRow></TableHead>
-              <TableBody>{claims.slice().sort((a, b) => b.ageingDays - a.ageingDays).slice(0, 10).map((claim) => <TableRow key={claim.claimNumber} sx={{ bgcolor: claim.ageingDays > 15 ? '#fee2e2' : claim.ageingDays >= 7 ? '#fef3c7' : 'inherit' }}><TableCell>{claim.claimNumber}</TableCell><TableCell>{claim.customerName}</TableCell><TableCell>{claim.claimType}</TableCell><TableCell><StatusChip status={claim.status} /></TableCell><TableCell>{claim.ageingDays}</TableCell><TableCell>{claim.region}</TableCell></TableRow>)}</TableBody>
+              <TableBody>{claims.slice().sort((a, b) => b.ageingDays - a.ageingDays).slice(0, 10).map((claim) => <TableRow key={claim.claimNumber} sx={{ bgcolor: claim.ageingDays > 15 ? '#fee2e2' : claim.ageingDays >= 7 ? '#fef3c7' : 'inherit' }}><TableCell>{claim.claimNumber}</TableCell><TableCell>{claim.customerName}</TableCell><TableCell>{formatClaimType(claim.claimType)}</TableCell><TableCell><StatusChip status={claim.status} /></TableCell><TableCell>{claim.ageingDays}</TableCell><TableCell>{claim.region}</TableCell></TableRow>)}</TableBody>
             </Table>
           </Paper>
         </Grid>

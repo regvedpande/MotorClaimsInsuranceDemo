@@ -2,6 +2,7 @@ import { Button, Chip, Paper, Stack, Table, TableBody, TableCell, TableHead, Tab
 import PageHeader from '../../components/PageHeader.jsx';
 import StatusChip from '../../components/StatusChip.jsx';
 import { useApp } from '../../context/AppContext.jsx';
+import { formatClaimType } from '../../data/constants.js';
 
 export default function AgeingReport() {
   const { claims, notify } = useApp();
@@ -14,7 +15,7 @@ export default function AgeingReport() {
         <Chip color="warning" label={`7-15 days: ${open.filter((c) => c.ageingDays >= 7 && c.ageingDays <= 15).length}`} />
         <Chip color="success" label={`<7 days: ${open.filter((c) => c.ageingDays < 7).length}`} />
       </Stack>
-      <Paper sx={{ overflowX: 'auto' }}><Table><TableHead><TableRow><TableCell>Claim No</TableCell><TableCell>Customer</TableCell><TableCell>Type</TableCell><TableCell>Status</TableCell><TableCell>Ageing</TableCell><TableCell>Region</TableCell></TableRow></TableHead><TableBody>{open.map((claim) => <TableRow key={claim.claimNumber} sx={{ bgcolor: claim.ageingDays > 15 ? '#fee2e2' : claim.ageingDays >= 7 ? '#fef3c7' : 'inherit' }}><TableCell>{claim.claimNumber}</TableCell><TableCell>{claim.customerName}</TableCell><TableCell>{claim.claimType}</TableCell><TableCell><StatusChip status={claim.status} /></TableCell><TableCell>{claim.ageingDays} days</TableCell><TableCell>{claim.region}</TableCell></TableRow>)}</TableBody></Table></Paper>
+      <Paper sx={{ overflowX: 'auto' }}><Table><TableHead><TableRow><TableCell>Claim No</TableCell><TableCell>Customer</TableCell><TableCell>Type</TableCell><TableCell>Status</TableCell><TableCell>Ageing</TableCell><TableCell>Region</TableCell></TableRow></TableHead><TableBody>{open.map((claim) => <TableRow key={claim.claimNumber} sx={{ bgcolor: claim.ageingDays > 15 ? '#fee2e2' : claim.ageingDays >= 7 ? '#fef3c7' : 'inherit' }}><TableCell>{claim.claimNumber}</TableCell><TableCell>{claim.customerName}</TableCell><TableCell>{formatClaimType(claim.claimType)}</TableCell><TableCell><StatusChip status={claim.status} /></TableCell><TableCell>{claim.ageingDays} days</TableCell><TableCell>{claim.region}</TableCell></TableRow>)}</TableBody></Table></Paper>
     </>
   );
 }
