@@ -10,7 +10,9 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    linear-gradient(180deg, #f7fafc 0%, #eef7f6 52%, #f7fafc 100%);
+    linear-gradient(180deg, #f5fafc 0%, #edf8f4 44%, #f7fafc 100%);
+  color: #0f172a;
+  overflow-x: hidden;
 }
 
 a {
@@ -43,6 +45,23 @@ a {
 
 .MuiButton-root {
   text-transform: none;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.MuiCard-root {
+  backdrop-filter: blur(10px);
+}
+
+.MuiListItemButton-root {
+  transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+
+.MuiListItemButton-root:hover {
+  transform: translateX(2px);
 }
 
 .MuiTable-root {

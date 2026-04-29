@@ -2,13 +2,13 @@ import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   palette: {
-    primary: { main: '#10243f', contrastText: '#ffffff' },
+    primary: { main: '#123247', contrastText: '#ffffff' },
     secondary: { main: '#2563eb' },
     success: { main: '#16a34a' },
     warning: { main: '#d97706' },
     error: { main: '#dc2626' },
     info: { main: '#0d9488' },
-    background: { default: '#f7fafc', paper: '#ffffff' },
+    background: { default: '#f4f8fb', paper: '#ffffff' },
     text: { primary: '#0f172a', secondary: '#475569' }
   },
   typography: {
@@ -27,7 +27,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           border: '1px solid #e2e8f0',
-          boxShadow: '0 16px 36px rgba(15,23,42,0.08)',
+          boxShadow: '0 18px 40px rgba(15,23,42,0.08)',
           backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #fbfdff 100%)'
         }
       }
@@ -52,9 +52,9 @@ export const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#10243f',
+          backgroundColor: '#123247',
           color: '#ffffff',
-          backgroundImage: 'linear-gradient(90deg, #10243f 0%, #18385d 48%, #0f766e 100%)'
+          backgroundImage: 'linear-gradient(90deg, #123247 0%, #14556b 52%, #0f766e 100%)'
         }
       }
     },

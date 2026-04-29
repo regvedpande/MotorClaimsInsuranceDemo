@@ -1,9 +1,14 @@
-import { Box, Button, Card, CardActionArea, CardContent, Chip, Container, Grid, Stack, Typography } from '@mui/material';
+import { alpha } from '@mui/material/styles';
+import { Box, Button, Card, CardActionArea, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import BuildIcon from '@mui/icons-material/Build';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 import { Link as RouterLink } from 'react-router-dom';
 import ArchitectureDiagram from '../components/ArchitectureDiagram.jsx';
 
@@ -15,36 +20,237 @@ const portals = [
   { title: 'Analytics Dashboard', tag: 'Management', to: '/analytics', icon: <BarChartIcon fontSize="large" />, accent: '#be123c', description: 'Regional KPIs, settlement trends, ageing analysis and claim type distribution' }
 ];
 
+const highlights = [
+  { label: 'Role-based journeys', value: '5 portals', icon: <VerifiedUserOutlinedIcon fontSize="small" /> },
+  { label: 'Decision speed', value: 'Live dashboard', icon: <AccessTimeOutlinedIcon fontSize="small" /> },
+  { label: 'Partner workflow', value: 'Garage + surveyor', icon: <HandshakeOutlinedIcon fontSize="small" /> }
+];
+
 export default function Landing() {
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
-      <Box sx={{ bgcolor: '#10243f', color: '#ffffff', py: { xs: 5, md: 7 }, backgroundImage: 'linear-gradient(135deg, #10243f 0%, #18385d 48%, #0f766e 100%)' }}>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', overflowX: 'hidden' }}>
+      <Box
+        sx={{
+          position: 'relative',
+          color: '#ffffff',
+          pt: { xs: 4, md: 5 },
+          pb: { xs: 14, md: 18 },
+          backgroundColor: '#10243f',
+          backgroundImage: `
+            linear-gradient(105deg, rgba(7, 18, 34, 0.9) 0%, rgba(14, 45, 61, 0.8) 48%, rgba(12, 118, 110, 0.58) 100%),
+            url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80")
+          `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          overflow: 'hidden'
+        }}
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(9,15,28,0.18) 0%, rgba(9,15,28,0.54) 100%)'
+          }}
+        />
         <Container maxWidth="lg">
-          <Typography variant="overline" sx={{ color: '#99f6e4', fontWeight: 800 }}>Portfolio demo</Typography>
-          <Typography variant="h2" sx={{ maxWidth: 860, fontWeight: 800 }}>Motor Claims Command Center</Typography>
-          <Typography variant="h6" sx={{ mt: 1, opacity: 0.92, maxWidth: 760 }}>Explore FNOL, assessment, survey, garage authorisation, settlement and analytics workflows from one polished portfolio demo.</Typography>
-          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 3 }}>
-            {['React 18', 'Material UI', 'Role-based portals', 'Settlement logic', 'Mock insurance data', 'Vercel ready'].map((item) => <Chip key={item} label={item} sx={{ bgcolor: '#ffffff18', color: '#ffffff' }} />)}
-          </Stack>
+          <Box sx={{ position: 'relative', zIndex: 1 }}>
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              alignItems={{ xs: 'flex-start', sm: 'center' }}
+              justifyContent="space-between"
+              spacing={2}
+              sx={{ mb: { xs: 6, md: 9 } }}
+            >
+              <Stack direction="row" spacing={1.25} alignItems="center">
+                <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#5eead4', boxShadow: '0 0 0 6px rgba(94,234,212,0.16)' }} />
+                <Typography variant="overline" sx={{ color: '#d5fff7', fontWeight: 800 }}>
+                  Motor Claims Experience Demo
+                </Typography>
+              </Stack>
+              <Stack
+                direction="row"
+                spacing={1}
+                flexWrap="wrap"
+                useFlexGap
+                sx={{ maxWidth: '100%', justifyContent: { xs: 'flex-start', sm: 'flex-end' } }}
+              >
+                {['Claims', 'Settlement', 'Analytics'].map((item) => (
+                  <Chip
+                    key={item}
+                    label={item}
+                    sx={{
+                      maxWidth: '100%',
+                      bgcolor: 'rgba(255,255,255,0.12)',
+                      color: '#ffffff',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255,255,255,0.16)'
+                    }}
+                  />
+                ))}
+              </Stack>
+            </Stack>
+
+            <Typography
+              variant="h1"
+              sx={{
+                maxWidth: 900,
+                fontSize: { xs: '2.6rem', sm: '3.5rem', md: '5rem' },
+                lineHeight: { xs: 1.06, md: 1 },
+                fontWeight: 800,
+                textWrap: 'balance',
+                overflowWrap: 'anywhere'
+              }}
+            >
+              A sharper front door for motor claims operations
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={{
+                mt: 2.5,
+                opacity: 0.95,
+                maxWidth: 760,
+                lineHeight: 1.55,
+                fontWeight: 500,
+                fontSize: { xs: '1.02rem', sm: '1.15rem', md: '1.5rem' }
+              }}
+            >
+              Move through FNOL intake, survey, garage coordination, settlement approval and executive reporting in one streamlined portfolio build.
+            </Typography>
+
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 4 }}>
+              <Button
+                component={RouterLink}
+                to="/claims-desk"
+                variant="contained"
+                endIcon={<ArrowForwardIcon />}
+                sx={{
+                  px: 3,
+                  py: 1.4,
+                  bgcolor: '#ffffff',
+                  color: '#0f172a',
+                  '&:hover': { bgcolor: '#ecfeff' }
+                }}
+              >
+                Open Claims Desk
+              </Button>
+              <Button
+                component={RouterLink}
+                to="/analytics"
+                variant="outlined"
+                sx={{
+                  px: 3,
+                  py: 1.4,
+                  borderColor: 'rgba(255,255,255,0.3)',
+                  color: '#ffffff',
+                  bgcolor: 'rgba(255,255,255,0.08)',
+                  backdropFilter: 'blur(10px)',
+                  '&:hover': {
+                    borderColor: 'rgba(255,255,255,0.45)',
+                    bgcolor: 'rgba(255,255,255,0.12)'
+                  }
+                }}
+              >
+                View Analytics
+              </Button>
+            </Stack>
+
+            <Grid container spacing={2} sx={{ mt: { xs: 4, md: 5 } }}>
+              {highlights.map((item) => (
+                <Grid item xs={12} sm={4} key={item.label}>
+                  <Stack
+                    direction="row"
+                    spacing={1.5}
+                    alignItems="center"
+                    sx={{
+                      px: 2,
+                      py: 1.75,
+                      borderRadius: 2,
+                      bgcolor: 'rgba(255,255,255,0.1)',
+                      border: '1px solid rgba(255,255,255,0.14)',
+                      backdropFilter: 'blur(12px)'
+                    }}
+                  >
+                    <Box sx={{ display: 'grid', placeItems: 'center', width: 36, height: 36, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.14)' }}>
+                      {item.icon}
+                    </Box>
+                    <Box>
+                      <Typography variant="subtitle2" sx={{ color: '#dbeafe' }}>{item.label}</Typography>
+                      <Typography variant="h6">{item.value}</Typography>
+                    </Box>
+                  </Stack>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
         </Container>
       </Box>
-      <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: -10, md: -12 }, position: 'relative', zIndex: 2, pb: 6 }}>
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          justifyContent="space-between"
+          alignItems={{ xs: 'flex-start', md: 'center' }}
+          spacing={2}
+          sx={{ mb: 3.5 }}
+        >
+          <Box>
+            <Typography variant="overline" sx={{ color: 'secondary.main', fontWeight: 800 }}>
+              Choose a workflow
+            </Typography>
+            <Typography variant="h4" sx={{ mt: 0.5 }}>
+              Navigate the platform by role
+            </Typography>
+          </Box>
+          <Typography color="text.secondary" sx={{ maxWidth: 520, lineHeight: 1.7 }}>
+            Each portal is tuned for a different participant in the claims journey, with clearer entry points and a stronger visual hierarchy.
+          </Typography>
+        </Stack>
         <Grid container spacing={3}>
           {portals.map((portal) => (
             <Grid item xs={12} sm={6} md={portal.title === 'Analytics Dashboard' ? 12 : 3} key={portal.title}>
-              <Card sx={{ height: '100%', minHeight: 268, borderTop: `5px solid ${portal.accent}`, display: 'flex', flexDirection: 'column' }}>
-                <CardActionArea component={RouterLink} to={portal.to} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'stretch' }}>
+              <Card
+                sx={{
+                  height: '100%',
+                  minHeight: portal.title === 'Analytics Dashboard' ? 220 : 296,
+                  borderTop: `5px solid ${portal.accent}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  overflow: 'hidden',
+                  transition: 'transform 180ms ease, box-shadow 180ms ease',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 24px 52px rgba(15,23,42,0.12)'
+                  }
+                }}
+              >
+                <CardActionArea component={RouterLink} to={portal.to} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'stretch', alignItems: 'stretch' }}>
                   <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%', gap: 2, px: 3, py: 3 }}>
                     <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={1}>
-                      <Box sx={{ color: portal.accent }}>{portal.icon}</Box>
-                      <Chip label={portal.tag} size="small" sx={{ bgcolor: '#f3f4f6', color: '#111827', fontWeight: 600 }} />
+                      <Box
+                        sx={{
+                          color: portal.accent,
+                          width: 56,
+                          height: 56,
+                          borderRadius: 2,
+                          bgcolor: alpha(portal.accent, 0.12),
+                          display: 'grid',
+                          placeItems: 'center'
+                        }}
+                      >
+                        {portal.icon}
+                      </Box>
+                      <Chip label={portal.tag} size="small" sx={{ bgcolor: '#f8fafc', color: '#111827', fontWeight: 700, border: '1px solid #e2e8f0' }} />
                     </Stack>
-                    <Box>
-                      <Typography variant="h5" sx={{ mt: 1, fontWeight: 700 }}>{portal.title}</Typography>
-                      <Typography color="text.secondary" sx={{ mt: 1, lineHeight: 1.6, minHeight: { md: 104 } }}>{portal.description}</Typography>
+                    <Divider />
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.25, flexGrow: 1 }}>
+                      <Typography variant="h5" sx={{ fontWeight: 800 }}>{portal.title}</Typography>
+                      <Typography color="text.secondary" sx={{ lineHeight: 1.7, minHeight: { md: portal.title === 'Analytics Dashboard' ? 0 : 116 } }}>
+                        {portal.description}
+                      </Typography>
                     </Box>
                     <Box sx={{ mt: 'auto' }}>
-                      <Button variant="outlined">Enter Portal</Button>
+                      <Button variant="outlined" endIcon={<ArrowForwardIcon />} sx={{ borderColor: alpha(portal.accent, 0.3), color: portal.accent }}>
+                        Enter Portal
+                      </Button>
                     </Box>
                   </CardContent>
                 </CardActionArea>
@@ -55,7 +261,9 @@ export default function Landing() {
         <Box sx={{ py: 4 }}>
           <ArchitectureDiagram />
         </Box>
-        <Typography align="center" color="text.secondary" sx={{ py: 4 }}>Built for portfolio review | React 18 + MUI 5</Typography>
+        <Typography align="center" color="text.secondary" sx={{ py: 2 }}>
+          Built for portfolio review | React 18 + MUI 5
+        </Typography>
       </Container>
     </Box>
   );

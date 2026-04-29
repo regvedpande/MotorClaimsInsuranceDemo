@@ -2,6 +2,13 @@
 
 Enterprise-style React 18 portfolio demo for a complete motor insurance claims ecosystem. The application is deployable on Vercel and uses hardcoded Indian insurance mock data, role-based portals, settlement calculations, workflow state changes, and management analytics.
 
+## Experience Highlights
+
+- Polished full-bleed landing page with stronger visual hierarchy and faster portal entry points
+- Refined shared navigation shell with branded top bar, structured side nav, and mobile-friendly bottom navigation
+- End-to-end claims workflows across customer, surveyor, garage, operations, and analytics roles
+- Production-ready Vite build deployed cleanly on Vercel
+
 ## Live Demo Flow
 
 1. Open the landing page and choose a portal from the role cards.
@@ -13,6 +20,7 @@ Enterprise-style React 18 portfolio demo for a complete motor insurance claims e
 
 ## Demo Guide
 
+- Start on the landing page to show the upgraded hero, clearer CTA flow, and role-based portal cards.
 - Start with **Claims Desk** to show the full operational workflow and drill into claim details.
 - Open **Settlement Calculator** to explain depreciation, inadmissibles, excess, and net payable.
 - Use **Claimant Portal** to demonstrate a customer-facing FNOL journey.
@@ -91,6 +99,12 @@ src/
   pages/            Role-based portals and pages
   utils/            Currency, date, settlement calculations
 ```
+
+## UI Notes
+
+- `Landing.jsx` owns the marketing-free first screen and portal selection experience.
+- `PortalLayout.jsx` provides the shared desktop drawer, top app bar, and mobile bottom navigation.
+- `theme.js` and `styles.css` hold the global visual system for cards, tables, typography, and shell polish.
 
 ## Settlement Formula
 
