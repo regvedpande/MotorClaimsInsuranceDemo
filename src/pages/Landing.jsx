@@ -33,8 +33,8 @@ export default function Landing() {
         sx={{
           position: 'relative',
           color: '#ffffff',
-          pt: { xs: 4, md: 5 },
-          pb: { xs: 14, md: 18 },
+          pt: { xs: 3, md: 5 },
+          pb: { xs: 9, md: 18 },
           backgroundColor: '#10243f',
           backgroundImage: `
             linear-gradient(105deg, rgba(7, 18, 34, 0.9) 0%, rgba(14, 45, 61, 0.8) 48%, rgba(12, 118, 110, 0.58) 100%),
@@ -59,7 +59,7 @@ export default function Landing() {
               alignItems={{ xs: 'flex-start', sm: 'center' }}
               justifyContent="space-between"
               spacing={2}
-              sx={{ mb: { xs: 6, md: 9 } }}
+              sx={{ mb: { xs: 4, md: 9 } }}
             >
               <Stack direction="row" spacing={1.25} alignItems="center">
                 <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#5eead4', boxShadow: '0 0 0 6px rgba(94,234,212,0.16)' }} />
@@ -94,8 +94,8 @@ export default function Landing() {
               variant="h1"
               sx={{
                 maxWidth: 900,
-                fontSize: { xs: '2.6rem', sm: '3.5rem', md: '5rem' },
-                lineHeight: { xs: 1.06, md: 1 },
+                fontSize: { xs: '2.2rem', sm: '3.5rem', md: '5rem' },
+                lineHeight: { xs: 1.03, md: 1 },
                 fontWeight: 800,
                 textWrap: 'balance',
                 overflowWrap: 'anywhere'
@@ -106,26 +106,26 @@ export default function Landing() {
             <Typography
               variant="h5"
               sx={{
-                mt: 2.5,
+                mt: { xs: 1.75, md: 2.5 },
                 opacity: 0.95,
                 maxWidth: 760,
-                lineHeight: 1.55,
+                lineHeight: 1.48,
                 fontWeight: 500,
-                fontSize: { xs: '1.02rem', sm: '1.15rem', md: '1.5rem' }
+                fontSize: { xs: '0.96rem', sm: '1.15rem', md: '1.5rem' }
               }}
             >
               Move through FNOL intake, survey, garage coordination, settlement approval and executive reporting in one streamlined portfolio build.
             </Typography>
 
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 4 }}>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.25} sx={{ mt: { xs: 3, md: 4 } }}>
               <Button
                 component={RouterLink}
                 to="/claims-desk"
                 variant="contained"
                 endIcon={<ArrowForwardIcon />}
                 sx={{
-                  px: 3,
-                  py: 1.4,
+                  px: { xs: 2.25, md: 3 },
+                  py: { xs: 1.15, md: 1.4 },
                   bgcolor: '#ffffff',
                   color: '#0f172a',
                   '&:hover': { bgcolor: '#ecfeff' }
@@ -138,8 +138,8 @@ export default function Landing() {
                 to="/analytics"
                 variant="outlined"
                 sx={{
-                  px: 3,
-                  py: 1.4,
+                  px: { xs: 2.25, md: 3 },
+                  py: { xs: 1.15, md: 1.4 },
                   borderColor: 'rgba(255,255,255,0.3)',
                   color: '#ffffff',
                   bgcolor: 'rgba(255,255,255,0.08)',
@@ -154,7 +154,7 @@ export default function Landing() {
               </Button>
             </Stack>
 
-            <Grid container spacing={2} sx={{ mt: { xs: 4, md: 5 } }}>
+            <Grid container spacing={{ xs: 1.25, md: 2 }} sx={{ mt: { xs: 3, md: 5 } }}>
               {highlights.map((item) => (
                 <Grid item xs={12} sm={4} key={item.label}>
                   <Stack
@@ -162,20 +162,20 @@ export default function Landing() {
                     spacing={1.5}
                     alignItems="center"
                     sx={{
-                      px: 2,
-                      py: 1.75,
+                      px: { xs: 1.5, md: 2 },
+                      py: { xs: 1.25, md: 1.75 },
                       borderRadius: 2,
                       bgcolor: 'rgba(255,255,255,0.1)',
                       border: '1px solid rgba(255,255,255,0.14)',
                       backdropFilter: 'blur(12px)'
                     }}
                   >
-                    <Box sx={{ display: 'grid', placeItems: 'center', width: 36, height: 36, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.14)' }}>
+                    <Box sx={{ display: 'grid', placeItems: 'center', width: { xs: 32, md: 36 }, height: { xs: 32, md: 36 }, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.14)' }}>
                       {item.icon}
                     </Box>
                     <Box>
-                      <Typography variant="subtitle2" sx={{ color: '#dbeafe' }}>{item.label}</Typography>
-                      <Typography variant="h6">{item.value}</Typography>
+                      <Typography variant="subtitle2" sx={{ color: '#dbeafe', fontSize: { xs: '0.8rem', md: '0.875rem' } }}>{item.label}</Typography>
+                      <Typography variant="h6" sx={{ fontSize: { xs: '1.35rem', md: '1.5rem' } }}>{item.value}</Typography>
                     </Box>
                   </Stack>
                 </Grid>
@@ -184,33 +184,33 @@ export default function Landing() {
           </Box>
         </Container>
       </Box>
-      <Container maxWidth="lg" sx={{ mt: { xs: -10, md: -12 }, position: 'relative', zIndex: 2, pb: 6 }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: -5, md: -12 }, position: 'relative', zIndex: 2, pb: 6 }}>
         <Stack
           direction={{ xs: 'column', md: 'row' }}
           justifyContent="space-between"
           alignItems={{ xs: 'flex-start', md: 'center' }}
           spacing={2}
-          sx={{ mb: 3.5 }}
+          sx={{ mb: { xs: 2.5, md: 3.5 } }}
         >
           <Box>
             <Typography variant="overline" sx={{ color: 'secondary.main', fontWeight: 800 }}>
               Choose a workflow
             </Typography>
-            <Typography variant="h4" sx={{ mt: 0.5 }}>
+            <Typography variant="h4" sx={{ mt: 0.5, fontSize: { xs: '1.75rem', md: '2.125rem' } }}>
               Navigate the platform by role
             </Typography>
           </Box>
-          <Typography color="text.secondary" sx={{ maxWidth: 520, lineHeight: 1.7 }}>
+          <Typography color="text.secondary" sx={{ maxWidth: 520, lineHeight: 1.7, fontSize: { xs: '0.96rem', md: '1rem' } }}>
             Each portal is tuned for a different participant in the claims journey, with clearer entry points and a stronger visual hierarchy.
           </Typography>
         </Stack>
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 2, md: 3 }}>
           {portals.map((portal) => (
             <Grid item xs={12} sm={6} md={portal.title === 'Analytics Dashboard' ? 12 : 3} key={portal.title}>
               <Card
                 sx={{
                   height: '100%',
-                  minHeight: portal.title === 'Analytics Dashboard' ? 220 : 296,
+                  minHeight: { xs: portal.title === 'Analytics Dashboard' ? 208 : 252, md: portal.title === 'Analytics Dashboard' ? 220 : 296 },
                   borderTop: `5px solid ${portal.accent}`,
                   display: 'flex',
                   flexDirection: 'column',
@@ -223,13 +223,13 @@ export default function Landing() {
                 }}
               >
                 <CardActionArea component={RouterLink} to={portal.to} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'stretch', alignItems: 'stretch' }}>
-                  <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%', gap: 2, px: 3, py: 3 }}>
+                  <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%', gap: { xs: 1.5, md: 2 }, px: { xs: 2.25, md: 3 }, py: { xs: 2.25, md: 3 } }}>
                     <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={1}>
                       <Box
                         sx={{
                           color: portal.accent,
-                          width: 56,
-                          height: 56,
+                          width: { xs: 48, md: 56 },
+                          height: { xs: 48, md: 56 },
                           borderRadius: 2,
                           bgcolor: alpha(portal.accent, 0.12),
                           display: 'grid',
@@ -242,8 +242,8 @@ export default function Landing() {
                     </Stack>
                     <Divider />
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.25, flexGrow: 1 }}>
-                      <Typography variant="h5" sx={{ fontWeight: 800 }}>{portal.title}</Typography>
-                      <Typography color="text.secondary" sx={{ lineHeight: 1.7, minHeight: { md: portal.title === 'Analytics Dashboard' ? 0 : 116 } }}>
+                      <Typography variant="h5" sx={{ fontWeight: 800, fontSize: { xs: '1.45rem', md: '1.5rem' } }}>{portal.title}</Typography>
+                      <Typography color="text.secondary" sx={{ lineHeight: 1.65, fontSize: { xs: '0.95rem', md: '1rem' }, minHeight: { md: portal.title === 'Analytics Dashboard' ? 0 : 116 } }}>
                         {portal.description}
                       </Typography>
                     </Box>

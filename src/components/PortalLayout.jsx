@@ -98,13 +98,13 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
           backdropFilter: 'blur(18px)'
         }}
       >
-        <Toolbar sx={{ minHeight: { xs: 72, md: 80 } }}>
-          <Stack direction="row" alignItems="center" spacing={1.5} sx={{ flexGrow: 1 }}>
+        <Toolbar sx={{ minHeight: { xs: 66, md: 80 }, px: { xs: 1.5, md: 3 } }}>
+          <Stack direction="row" alignItems="center" spacing={{ xs: 1, md: 1.5 }} sx={{ flexGrow: 1, minWidth: 0 }}>
             <Avatar
               variant="rounded"
               sx={{
-                width: 42,
-                height: 42,
+                width: { xs: 38, md: 42 },
+                height: { xs: 38, md: 42 },
                 bgcolor: alpha('#5eead4', 0.16),
                 color: '#d5fff7',
                 fontWeight: 800,
@@ -113,9 +113,9 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
             >
               MC
             </Avatar>
-            <Box>
-              <Typography variant="h6">{title}</Typography>
-              {subtitle && <Typography variant="caption" sx={{ opacity: 0.78 }}>{subtitle}</Typography>}
+            <Box sx={{ minWidth: 0 }}>
+              <Typography variant="h6" sx={{ fontSize: { xs: '1.05rem', md: '1.25rem' }, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{title}</Typography>
+              {subtitle && <Typography variant="caption" sx={{ opacity: 0.78, display: 'block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{subtitle}</Typography>}
             </Box>
           </Stack>
           {!isMobile && (
@@ -163,8 +163,8 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
         component="main"
         sx={{
           flexGrow: 1,
-          p: { xs: 2, md: 3.5 },
-          pt: { xs: 10, md: 12 },
+          p: { xs: 1.5, md: 3.5 },
+          pt: { xs: 9, md: 12 },
           width: { md: `calc(100% - ${drawerWidth}px)` }
         }}
       >
@@ -174,7 +174,6 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
         <BottomNavigation
           value={active}
           onChange={(_, value) => navigate(navItems[value]?.to || '/')}
-          showLabels
           sx={{
             position: 'fixed',
             bottom: 0,
@@ -184,7 +183,17 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
             borderTop: '1px solid #dbe4ef',
             bgcolor: 'rgba(255,255,255,0.94)',
             backdropFilter: 'blur(18px)',
-            boxShadow: '0 -8px 24px rgba(15,23,42,0.08)'
+            boxShadow: '0 -8px 24px rgba(15,23,42,0.08)',
+            '& .MuiBottomNavigationAction-root': {
+              minWidth: 0,
+              px: 0.15,
+              pt: 0.75,
+              minHeight: 58
+            },
+            '& .MuiBottomNavigationAction-label': {
+              fontSize: '0.64rem',
+              lineHeight: 1.1
+            }
           }}
         >
           {navItems.slice(0, 5).map((item) => <BottomNavigationAction key={item.to} label={item.shortLabel || item.label} icon={item.icon} />)}

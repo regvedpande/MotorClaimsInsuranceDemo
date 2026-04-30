@@ -24,7 +24,29 @@ export default function AllClaims() {
         <Grid item xs={12} md={5}><TextField fullWidth label="Search by claim number, customer, vehicle" value={query} onChange={(e) => setQuery(e.target.value)} /></Grid>
         <Grid item xs={12} md={3}><TextField select fullWidth label="Status" value={status} onChange={(e) => setStatus(e.target.value)}><MenuItem value="All">All statuses</MenuItem>{CLAIM_STATUSES.map((s) => <MenuItem key={s} value={s}>{s}</MenuItem>)}</TextField></Grid>
         <Grid item xs={12} md={2}><TextField select fullWidth label="Region" value={region} onChange={(e) => setRegion(e.target.value)}><MenuItem value="All">All regions</MenuItem>{REGIONS.map((r) => <MenuItem key={r} value={r}>{r}</MenuItem>)}</TextField></Grid>
-        <Grid item xs={12} md={2}><ToggleButtonGroup exclusive fullWidth value={type} onChange={(_, v) => v && setType(v)}><ToggleButton value="All">All</ToggleButton><ToggleButton value="OwnDamage">OD</ToggleButton><ToggleButton value="Theft">Theft</ToggleButton><ToggleButton value="PersonalAccident">PA</ToggleButton></ToggleButtonGroup></Grid>
+        <Grid item xs={12} md={2}>
+          <ToggleButtonGroup
+            exclusive
+            fullWidth
+            value={type}
+            onChange={(_, v) => v && setType(v)}
+            size="small"
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(4, minmax(0, 1fr))' },
+              '& .MuiToggleButton-root': {
+                px: { xs: 0.25, md: 1 },
+                py: 1.05,
+                fontSize: { xs: '0.78rem', md: '0.875rem' }
+              }
+            }}
+          >
+            <ToggleButton value="All">All</ToggleButton>
+            <ToggleButton value="OwnDamage">OD</ToggleButton>
+            <ToggleButton value="Theft">Theft</ToggleButton>
+            <ToggleButton value="PersonalAccident">PA</ToggleButton>
+          </ToggleButtonGroup>
+        </Grid>
       </Grid>
       <Paper sx={{ overflowX: 'auto' }}>
         <Table>

@@ -73,6 +73,16 @@ a {
   color: #10243f;
 }
 
+@media (max-width: 899px) {
+  .MuiTableCell-root {
+    padding: 12px 14px;
+  }
+
+  .MuiTable-root {
+    min-width: 640px;
+  }
+}
+
 .pulse-dot {
   animation: pulse 1.5s infinite;
 }
