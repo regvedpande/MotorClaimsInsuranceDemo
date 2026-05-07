@@ -9,8 +9,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    linear-gradient(180deg, #f5fafc 0%, #edf8f4 44%, #f7fafc 100%);
+  background-color: #f1f5f9;
   color: #0f172a;
   overflow-x: hidden;
 }
@@ -20,79 +19,76 @@ a {
   text-decoration: none;
 }
 
-.MuiTableCell-root {
-  padding: 16px 20px;
-  vertical-align: middle;
-}
-
-.MuiTableHead-root .MuiTableCell-root {
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.3;
-}
-
-.MuiTableRow-root:nth-of-type(odd) {
-  background-color: rgba(15, 23, 42, 0.025);
-}
-
-.MuiTableRow-root:hover {
-  background-color: rgba(13, 148, 136, 0.08);
-}
-
-.MuiPaper-root {
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
-}
-
-.MuiButton-root {
-  text-transform: none;
-}
-
 #root {
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-.MuiCard-root {
-  backdrop-filter: blur(10px);
+/* Table refinements */
+.MuiTableCell-root {
+  padding: 14px 18px;
+  vertical-align: middle;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  padding: 10px 18px;
+}
+
+.MuiTableRow-root:hover .MuiTableCell-root {
+  background-color: rgba(37, 99, 235, 0.035);
+}
+
+/* First column bold */
+.MuiTableBody-root .MuiTableCell-root:first-of-type {
+  font-weight: 600;
+  color: #0f2d48;
+}
+
+/* Minimum table width for horizontal scroll */
+.MuiTable-root {
+  min-width: 640px;
+}
+
+/* Button resets */
+.MuiButton-root {
+  text-transform: none;
 }
 
 .MuiListItemButton-root {
-  transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
-.MuiListItemButton-root:hover {
-  transform: translateX(2px);
+/* Card glass effect */
+.MuiCard-root {
+  backdrop-filter: none;
 }
 
-.MuiTable-root {
-  min-width: 720px;
-}
-
-.MuiTableBody-root .MuiTableCell-root:first-of-type {
-  font-weight: 700;
-  color: #10243f;
+/* Smooth Paper */
+.MuiPaper-root {
+  overflow: hidden;
 }
 
 @media (max-width: 899px) {
   .MuiTableCell-root {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   .MuiTable-root {
-    min-width: 640px;
+    min-width: 560px;
   }
 }
 
+/* Pulse animation for timeline stepper */
 .pulse-dot {
-  animation: pulse 1.5s infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.55);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45);
   }
-  70% {
-    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  60% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
