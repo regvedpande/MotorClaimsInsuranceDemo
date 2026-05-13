@@ -22,6 +22,13 @@ export const AppProvider = ({ children }) => {
     } : claim));
   };
 
+  const updateClaim = (claimNumber, updates) => {
+    setClaims((current) => current.map((claim) => claim.claimNumber === claimNumber ? {
+      ...claim,
+      ...updates
+    } : claim));
+  };
+
   const addClaim = (claim) => {
     setClaims((current) => [claim, ...current]);
     setSelectedClaimNumber(claim.claimNumber);
@@ -33,6 +40,7 @@ export const AppProvider = ({ children }) => {
     selectedClaim: claims.find((claim) => claim.claimNumber === selectedClaimNumber) || claims[0],
     setSelectedClaimNumber,
     updateClaimStatus,
+    updateClaim,
     addClaim,
     notify
   }), [claims, selectedClaimNumber]);
