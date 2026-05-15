@@ -11,7 +11,8 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
   const navigate = useNavigate();
-  const active = navItems.findIndex((item) => location.pathname === item.to || location.pathname.startsWith(`${item.to}/`));
+  const isItemActive = (item) => location.pathname === item.to || location.pathname.startsWith(`${item.to}/`);
+  const active = navItems.findIndex((item) => isItemActive(item));
 
   const nav = (
     <List sx={{ px: 1.5, pt: 2, pb: 3 }}>
@@ -63,7 +64,7 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
         <ListItemIcon sx={{ minWidth: 36, color: 'inherit' }}>
           <HomeIcon sx={{ fontSize: 20 }} />
         </ListItemIcon>
-        <ListItemText
+      <ListItemText
           primary="All Portals"
           primaryTypographyProps={{ fontSize: '0.875rem', fontWeight: 500 }}
         />
@@ -73,7 +74,7 @@ export default function PortalLayout({ title, subtitle, navItems, headerRight })
       <Box sx={{ my: 1, borderTop: '1px solid rgba(255,255,255,0.06)' }} />
 
       {navItems.map((item) => {
-        const isSelected = location.pathname === item.to || location.pathname.startsWith(`${item.to}/`);
+        const isSelected = isItemActive(item);
         return (
           <ListItemButton
             key={item.to}
